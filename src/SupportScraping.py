@@ -209,3 +209,52 @@ def obtener_href_productos(df_super):
     lista_dfs = [obtener_href(url) for url in lista_urls]
     return lista_dfs
 
+def crear_df_rn(supermercado,categoria,producto,url):
+    headers = {
+                # Decirle al server lenguaje español
+                'accept-language': 'es', 
+                # Simulamos que somos el navegador Chrome
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36'
+                }
+    res_facua = requests.get(url,headers=headers,timeout=5)
+    sopa= BeautifulSoup(res_facua.content, "html.parser")
+    search = sopa.find_all("table",{"class":"table table-striped table-responsive text-center"})
+    cols = search[0].find_all("th")
+    columnas = [] 
+    for c in range(0,len(cols)):
+        columnas.append(cols[c].getText())
+    body = search[0].find_all('tbody')[0].find_all('tr')
+    dias = []
+    precios = []
+    variaciones = []
+    for i in range(0,len(body)):
+        row = body[i].find_all('td')
+        dia = row[0].getText()
+        dias.append(dia)
+        precio = row[1].getText().replace(",",".")
+        precios.append(precio)
+        variacion = row[2].getText()
+        variaciones.append(variacion)
+  
+    supermercados = [supermercado] * len(dias)
+    categorias = [categoria] * len(dias)
+    productos = [producto] * len(dias)
+
+    df_result = pd.DataFrame({
+        "supermercado" : supermercados,
+        "categoria" : categorias,
+        "producto" : productos,
+        columnas[0] : dias,
+        columnas[1] : precios,
+        columnas[2] : variaciones
+    })
+    return df_result
+
+def crear_df_productos_con_historico(df_que_entra):
+    lista_supermercado = df_que_entra["supermercado"].to_list()
+    lista_categoria = df_que_entra["categoria"].to_list()
+    lista_productos = df_que_entra["Producto"].to_list()
+    lista_urls = df_que_entra["URL"].to_list()
+    
+    dfs_results = [crear_df_rn(lista_supermercado[i],lista_categoria[i],lista_productos[i],lista_urls[i]) for i, x in enumerate(lista_urls)]
+    return dfs_results

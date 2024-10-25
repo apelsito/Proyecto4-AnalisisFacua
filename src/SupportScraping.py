@@ -13,6 +13,11 @@ import time                                      # Para gestionar pausas y tempo
 # -----------------------------------------------------------------------
 from bs4 import BeautifulSoup  # Para analizar y extraer datos de HTML y XML (scraping web)
 
+# -----------------------------------------------------------------------
+# Librerías para visualización de progreso
+# -----------------------------------------------------------------------
+from tqdm import tqdm  # Para crear barras de progreso durante los bucles
+
 # Librerías para tratamiento y manipulación de datos
 # -----------------------------------------------------------------------
 import pandas as pd             # Para manipulación de estructuras de datos como DataFrames
@@ -256,5 +261,5 @@ def crear_df_productos_con_historico(df_que_entra):
     lista_productos = df_que_entra["Producto"].to_list()
     lista_urls = df_que_entra["URL"].to_list()
     
-    dfs_results = [crear_df_rn(lista_supermercado[i],lista_categoria[i],lista_productos[i],lista_urls[i]) for i, x in enumerate(lista_urls)]
+    dfs_results = [crear_df_rn(lista_supermercado[i],lista_categoria[i],lista_productos[i],lista_urls[i]) for i, x in tqdm(enumerate(lista_urls))]
     return dfs_results

@@ -30,6 +30,7 @@ from time import sleep          # Para pausar la ejecución del código por un t
 import random                   # Para generar valores aleatorios, útil para espaciar solicitudes y evitar bloqueos
 import requests                 # Repetido (puedes eliminar este segundo import de requests)
 
+import re
 
 def obtener_url_supermercados(xpath):
     
@@ -186,7 +187,6 @@ def obtener_href(url):
     sopa= BeautifulSoup(res_facua.content, "html.parser")
     n_productos = sopa.find_all("div",{"class":"card-footer p-4 pt-0 border-top-0 bg-transparent"})
     nombres = sopa.find_all("p",{"class":"fw-bolder"})
-    df_productos = []
     supermercado = []
     supermer = url_facua.split("/")[3]
     categoria = []
@@ -263,3 +263,5 @@ def crear_df_productos_con_historico(df_que_entra):
     
     dfs_results = [crear_df_rn(lista_supermercado[i],lista_categoria[i],lista_productos[i],lista_urls[i]) for i, x in tqdm(enumerate(lista_urls))]
     return dfs_results
+
+

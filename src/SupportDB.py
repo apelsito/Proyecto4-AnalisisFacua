@@ -9,8 +9,6 @@ from psycopg2 import OperationalError, errorcodes, errors
 # Trabajar con DataFrames
 # -----------------------------------------------------------------------
 import pandas as pd
-
-from geopy.geocoders import Nominatim
 import dotenv    
 import os
 
@@ -43,4 +41,21 @@ def modificar_bd(conexion, query):
     except Exception as e:
         print("No se ha podido realizar la operación:", e)
 
-            
+
+def insertar_muchos_datos_bd(conexion, query, tupla):
+    try:
+        cursor = conexion.cursor()
+        cursor.executemany(query,tupla)
+        conexion.commit()
+        cursor.close()
+        conexion.close()
+        print("Se han añadido los valores correctamente")
+    except Exception as e:
+        print("No se ha podido realizar la operación:", e)
+
+
+def generar_tupla(df,drop_index=False):
+    if drop_index == True:
+        df.drop(columns="index",inplace=True)
+    tupla = [tuple(valores) for valores in df.values]
+    return tupla

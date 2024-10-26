@@ -30,7 +30,6 @@ from time import sleep          # Para pausar la ejecución del código por un t
 import random                   # Para generar valores aleatorios, útil para espaciar solicitudes y evitar bloqueos
 import requests                 # Repetido (puedes eliminar este segundo import de requests)
 
-import re
 
 def obtener_url_supermercados(xpath):
     

@@ -29,5 +29,39 @@ from time import sleep          # Para pausar la ejecución del código por un t
 import random                   # Para generar valores aleatorios, útil para espaciar solicitudes y evitar bloqueos
 
 
-def obtener_indice_supermercado():
-    return
+def crear_df_unicos(df, nombre_columna):
+    columna = nombre_columna
+    lista_unicos = df[columna].unique().tolist()
+    df_unicos = pd.DataFrame({
+                    columna : lista_unicos
+                    })
+    df_unicos.index = pd.RangeIndex(start=1,
+                                    stop = len(df_unicos) + 1,
+                                    step=1)
+    
+    df_unicos.reset_index(inplace=True)
+    
+    return df_unicos
+
+def crear_dictio(df,columna):
+    dictio = {}
+    datos = df.groupby(columna)["index"].first()
+    indices = list(datos.index)
+    valores = list(datos.values)
+    for i in range(0, len(indices)):
+        dictio[indices[i]] = valores[i] 
+    
+    return dictio
+
+def crear_df_historico(df_historicos,df_supermercado,df_categoria,df_producto):
+    # Creamos los diccionarios
+    dictio_supermercados = crear_dictio(df_supermercado,"supermercado")
+    dictio_categorias = crear_dictio(df_categoria,"categoria")
+    dictio_productos = crear_dictio(df_producto,"producto")
+    
+    #Ponemos cada valor según cada uno de los diccionarios
+    df_historicos["supermercado"] = df_historicos["supermercado"].map(dictio_supermercados)
+    df_historicos["categoria"] = df_historicos["categoria"].map(dictio_categorias)
+    df_historicos["producto"] = df_historicos["producto"].map(dictio_productos)
+
+    return df_historicos

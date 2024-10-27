@@ -15,16 +15,6 @@ Este proyecto tiene como objetivo analizar los precios de productos en distintos
 
 Este análisis proporciona una visión detallada de cómo varían los precios en el mercado, ayudando a identificar patrones y realizar comparaciones útiles para el consumidor.
 
-
-## Descripción del Proyecto 💡
-
-El proyecto se centra en la recolección de datos de precios de productos de la página [FACUA](https://super.facua.org/): Precios Supermercados mediante técnicas de web scraping. Los datos obtenidos se almacenan en una base de datos SQL y se analizan usando Python y Pandas. Entre los principales componentes de este proyecto se encuentran:
-
-- **Comparación de precios**: Analizamos las diferencias de precios entre supermercados para identificar los más competitivos.
-- **Evolución de precios**: Estudiamos cómo han cambiado los precios de distintos productos a lo largo del tiempo.
-- **Detección de anomalías**: Identificamos cambios significativos en los precios para señalar anomalías o patrones inesperados.
-- **Visualización de datos**: Creamos gráficos interactivos usando Plotly Express para facilitar la interpretación de los resultados.
-
 ## Estructura del Proyecto 🗂️
 
 ```bash

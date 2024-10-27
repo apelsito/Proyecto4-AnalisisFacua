@@ -131,6 +131,7 @@ Con los DataFrames preparados, procedemos a crear la base de datos en PostgreSQL
    - Abrimos PostgreSQL en DBeaver y creamos una nueva base de datos llamada `historicos` con la siguiente configuración:
 
    ![Creación de Base de Datos en DBeaver](src/01_png/03_DBeaver.png)
+   
    ![Ajustes de la Base de Datos](src/01_png/04_DBeaver_newDB.png)
 
 2. **Crear las Tablas**:

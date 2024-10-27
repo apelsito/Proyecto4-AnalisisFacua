@@ -2,11 +2,11 @@
 
 Este proyecto tiene como objetivo recopilar, procesar y analizar datos de precios de productos en distintos supermercados de España, con el fin de comparar precios, estudiar la evolución de precios a lo largo del tiempo y detectar posibles anomalías. La información recolectada permite visualizar la dispersión de precios entre supermercados y ofrece una base de datos sólida para futuras investigaciones de tendencias de precios.
 
-## Descripción del Proyecto 💡
+# Descripción del Proyecto 💡
 
 Este proyecto tiene como objetivo analizar los precios de productos en distintos supermercados en España, utilizando datos extraídos de la página [**FACUA: Precios Supermercados**](https://super.facua.org/) mediante técnicas de web scraping. Los datos recolectados se almacenan en una base de datos SQL y se analizan con Python y Pandas. 
 
-### Principales Componentes del Proyecto 🔍
+## Principales Componentes del Proyecto 🔍
 
 - **Comparación de precios**: Evaluamos las diferencias de precios entre supermercados para identificar las opciones más competitivas en el mercado.
 - **Evolución de precios**: Analizamos las tendencias de los precios de distintos productos a lo largo del tiempo para entender su comportamiento y fluctuaciones.
@@ -15,7 +15,7 @@ Este proyecto tiene como objetivo analizar los precios de productos en distintos
 
 Este análisis proporciona una visión detallada de cómo varían los precios en el mercado, ayudando a identificar patrones y realizar comparaciones útiles para el consumidor.
 
-## Estructura del Proyecto 🗂️
+# Estructura del Proyecto 🗂️
 
 ```bash
 Proyecto4-AnalisisFacua/
@@ -34,8 +34,8 @@ Proyecto4-AnalisisFacua/
 ```
 
 
-## Instalación y Requisitos 🛠️
-### Requisitos
+# Instalación y Requisitos 🛠️
+## Requisitos
 
 Para ejecutar este proyecto, asegúrate de tener instalado lo siguiente:
 
@@ -55,22 +55,22 @@ Para ejecutar este proyecto, asegúrate de tener instalado lo siguiente:
     - [PostgreSQL](https://www.postgresql.org/) para la gestión y almacenamiento de datos relacionales 📂
     - [DBeaver](https://dbeaver.io/) para administración y consulta visual de bases de datos 🖥️
 
-### Instalación 🛠️
+## Instalación 🛠️
 
 1. Clona este repositorio para visualizarlo en vscode:
 ```bash
 git clone https://github.com/apelsito/Proyecto4-AnalisisFacua.git
 cd Proyecto4-AnalisisFacua
 ```
-## Desarrollo del Proyecto 🚀
+# Desarrollo del Proyecto 🚀
 
 Este proyecto se ha desarrollado en varias fases para asegurar una recopilación y procesamiento de datos estructurados, seguido de su análisis. A continuación, se describen las fases clave:
 
-### Fase 1: Scraping 🔍
+## Fase 1: Scraping 🔍
 
 La primera fase del proyecto consiste en recolectar datos de precios de productos mediante web scraping en la página de FACUA.
 
-#### Pasos:
+### Pasos:
 1. **Obtener URLs de Supermercados**: Usando Selenium, recopilamos todas las URLs de los supermercados disponibles en la página.
 2. **Extraer URLs de Productos**: A partir de las URLs de los supermercados, extraemos las URLs de las categorías clave:
     - **Aceite de girasol**
@@ -91,7 +91,7 @@ La primera fase del proyecto consiste en recolectar datos de precios de producto
 
 4. **Extraer Historicos de Productos**: Con BeautifulSoup, extraemos las URLs del historial de cada producto para su análisis posterior.
 
-##### Observaciones del web-scraping 📌
+### Observaciones del web-scraping 📌
 
 Al revisar los datos en busca de duplicados, observamos que algunos productos aparecen listados dos veces en la web. Por ejemplo:
 
@@ -104,11 +104,11 @@ Al examinar los historiales de ambos productos duplicados, encontramos que la UR
 
 Esta duplicación en los listados ocurre de forma recurrente. Por ello, hemos decidido eliminar los duplicados sin riesgo de perder información, ya que los datos de cada producto duplicado se refieren al mismo ítem en la base de datos de Facua.
 
-### Fase 2: Preparación Pre DB 🗄️
+## Fase 2: Preparación Pre DB 🗄️
 
 Antes de almacenar los datos en la base de datos, preparamos los DataFrames necesarios.
 
-#### Pasos:
+### Pasos:
 1. **Separación de Tablas**: Organizamos los datos en cuatro tablas para la base de datos:
    - **Supermercado**
    - **Categoría**
@@ -121,11 +121,11 @@ Antes de almacenar los datos en la base de datos, preparamos los DataFrames nece
 
 3. **Generación de Claves Foráneas**: En el DataFrame de **Histórico**, generamos un diccionario de cada tabla, reemplazando los valores de Supermercado, Categoría y Producto por sus índices correspondientes. Esto permite establecer relaciones entre tablas en la base de datos mediante claves foráneas.
 
-### Fase 3: Creación de la Base de Datos 🛢️
+## Fase 3: Creación de la Base de Datos 🛢️
 
 Con los DataFrames preparados, procedemos a crear la base de datos en PostgreSQL.
 
-#### Pasos:
+### Pasos:
 1. **Configuración de la Base de Datos en DBeaver**:
    - Abrimos PostgreSQL en DBeaver y creamos una nueva base de datos llamada `historicos` con la siguiente configuración:
 
@@ -171,7 +171,7 @@ Con los DataFrames preparados, procedemos a crear la base de datos en PostgreSQL
 
 Estas tablas estructuran los datos de manera que se puedan realizar consultas eficientes y mantener la integridad de las relaciones entre los datos.
 
-## Visualización y Análisis de Gráficas 📊
+# Visualización y Análisis de Gráficas 📊
 
 Para profundizar en los datos recolectados, hemos realizado diversas consultas SQL que nos permiten extraer información clave sobre precios, variaciones y patrones de los productos en los supermercados. Estas consultas nos facilitan analizar la dispersión de precios, identificar tendencias y detectar anomalías. A continuación, presentaremos una serie de gráficas interactivas basadas en estos datos, que ofrecen una visión clara y detallada del comportamiento de los precios en el mercado.
 

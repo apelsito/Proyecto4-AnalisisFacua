@@ -95,15 +95,14 @@ La primera fase del proyecto consiste en recolectar datos de precios de producto
 
 Al revisar los datos en busca de duplicados, observamos que algunos productos aparecen listados dos veces en la web. Por ejemplo:
 
-![Producto duplicado](../src/01_png/01_Producto_duplicado.png)
+![Producto duplicado](src/01_png/01_Producto_duplicado.png)
 
 Al examinar los historiales de ambos productos duplicados, encontramos que la URL de cada uno es idéntica:
 
-![Histórico con URL duplicada](../src/01_png/02_URL_es_lo_mismo.png)
-![Histórico con URL duplicada](../src/01_png/02_URL_es_lo_mismo.png)
+![Histórico con URL duplicada](src/01_png/02_URL_es_lo_mismo.png)
+![Histórico con URL duplicada](src/01_png/02_URL_es_lo_mismo.png)
 
 Esta duplicación en los listados ocurre de forma recurrente. Por ello, hemos decidido eliminar los duplicados sin riesgo de perder información, ya que los datos de cada producto duplicado se refieren al mismo ítem en la base de datos de Facua.
-
 
 ### Fase 2: Preparación Pre DB 🗄️
 
@@ -130,8 +129,8 @@ Con los DataFrames preparados, procedemos a crear la base de datos en PostgreSQL
 1. **Configuración de la Base de Datos en DBeaver**:
    - Abrimos PostgreSQL en DBeaver y creamos una nueva base de datos llamada `historicos` con la siguiente configuración:
 
-   ![Creación de Base de Datos en DBeaver](../src/01_png/03_DBeaver.png)
-   ![Ajustes de la Base de Datos](../src/01_png/04_DBeaver_newDB.png)
+   ![Creación de Base de Datos en DBeaver](src/01_png/03_DBeaver.png)
+   ![Ajustes de la Base de Datos](src/01_png/04_DBeaver_newDB.png)
 
 2. **Crear las Tablas**:
    - **Supermercados**:

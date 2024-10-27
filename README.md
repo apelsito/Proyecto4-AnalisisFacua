@@ -183,7 +183,11 @@ En esta fase final, verificamos que los datos puedan visualizarse en gráficos d
 
 # Análisis de las Gráficas obtenidas 📊
 
-Para profundizar en los datos recolectados, hemos realizado diversas consultas SQL que nos permiten extraer información clave sobre precios, variaciones y patrones de los productos en los supermercados. Estas consultas nos facilitan analizar la dispersión de precios, identificar tendencias y detectar anomalías. A continuación, presentaremos una serie de gráficas interactivas basadas en estos datos, que ofrecen una visión clara y detallada del comportamiento de los precios en el mercado.
+Para profundizar en los datos recolectados, hemos realizado diversas consultas SQL que nos permiten extraer información clave sobre precios, variaciones y patrones de los productos en los supermercados. Estas consultas nos facilitan analizar la dispersión de precios, identificar tendencias y detectar anomalías.
+
+A continuación, presentaremos una serie de gráficas interactivas basadas en estos datos, que ofrecen una visión clara y detallada del comportamiento de los precios en el mercado.
+
+Podrás encontrar todas las gráficas interactivas en ![05_visualización_consultas](notebooks/05_visualizacion_consultas.ipynb) o si prefieres verlas desde su HTML podrás acceder desde ![Aquí](src/02_graficas/html/)
 
 ## Productos por Supermercado
 
@@ -196,12 +200,44 @@ Para profundizar en los datos recolectados, hemos realizado diversas consultas S
 
 - **En contraste**, Hipercor y Alcampo, que tienen más productos listados, permiten un análisis más robusto y probablemente representativo de sus estrategias de precios y variedad de productos.
 
-- **Precauciones en las Conclusiones**: Al interpretar los precios promedio, es importante recordar que un menor número de productos listados (como en el caso de Mercadona) puede sesgar la media hacia los productos específicos que FACUA decidió incluir. Por lo tanto, las conclusiones sobre estrategias de precios deben tomarse con precaución, especialmente para supermercados con menor representación en los datos.
+- **Precauciones en las Conclusiones**: Al interpretar los precios promedio, es importante recordar que un menor número de productos listados (como en el caso de Mercadona) puede sesgar la media hacia los productos específicos que FACUA decidió incluir.
 
+Por lo tanto, las conclusiones sobre estrategias de precios deben tomarse con precaución, especialmente para supermercados con menor representación en los datos.
 
+## Productos con más cambios de precio
 
+![Cambios de Precio](src/02_graficas/png/07_mayores_cambios_en_productos_por_supermercado.png)
 
-## Conclusiones ✈️
+- Se muestra la cantidad de veces que el precio de un producto ha cambiado y de que supermercado procede.
+- Se observa que todos los productos son algún tipo de aceite, esto es muy probable que se deba a la alta volatilidad que tiene este producto, asociado con la inflación, demanda o costes de producción
+
+## Precio Promedio por Supermercado
+
+![Precio Promedio por supermercado](src/02_graficas/png/02_precio_promedio_por_supermercado.png)
+
+- La gráfica de barras muestra el precio promedio de los productos en cada supermercado.
+- Alcampo tiene el precio promedio más alto, seguido de Hipercor y Carrefour, mientras que Eroski tiene el precio promedio más bajo.
+- Esta diferencia en precios podría reflejar las estrategias de mercado de cada supermercado. Por ejemplo, Alcampo e Hipercor podrían estar ofreciendo productos de mayor calidad o marcas más costosas, mientras que Eroski y Mercadona parecen centrarse en opciones más asequibles.
+
+## Precio Promedio por Categoría (Fecha específica)
+Esta gráfica se ha creado con el objetivo de poder analizar el precio promedio en un día específico, separado por categoría y supermercado, puedes modificar esta gráfica para analizar la fecha que tu quieras
+
+![Precio Promedio Fecha Específica](src/02_graficas/png/03_promedio_categoria_supermercados_2024-10-26.png)
+
+- Esta gráfica apilada muestra el precio promedio de diferentes categorías de productos en cada supermercado en una fecha específica (2024-10-26).
+- Se observan variaciones importantes en las categorías de aceites de oliva y girasol, que tienden a tener precios más altos que otros productos como leche.
+- Esto podría estar indicando un patrón de precios en el mercado de aceites, con categorías específicas (como "aceite de oliva virgen" y "aceite de oliva suave e intenso") que representan una mayor proporción del precio en varios supermercados.
+
+## Anomalías en los Precios
+
+![Anomalías Precios](src/02_graficas/png/04_anomalias_precios.png) ![Anomalias Precios 4.1](src/02_graficas/png/04-1_anomalias_precios.png)
+
+- La gráfica muestra productos con subidas notables en sus precios, con precio_anterior (en naranja) y precio_actual (en verde). La diferencia entre ambos refleja las variaciones de precio para cada producto.
+- El producto con el mayor aumento es **Central Lechera Asturiana Leche Desnatada (0,0% Materia Grasa)**, con un incremento del **476.92%** respecto al precio anterior. Esta alteración podría ser bien un error o bien una práctica abusiva de un producto que promete engordar menos, habría que analizarlo con más detalle
+- Los **aceites (tanto de oliva como de girasol)** dominan esta lista de anomalías de precios. Esto podría estar reflejando una tendencia en el mercado en la cual los aceites, posiblemente por factores como la inflación o la escasez de insumos, han experimentado fuertes aumentos de precio.
+- La **leche desnatada y productos lácteos** también muestran aumentos significativos, lo cual podría estar relacionado con cambios en los costos de producción, transporte o demanda en productos lácteos.
+
+# Conclusiones ✈️
 
 
 

@@ -237,9 +237,45 @@ Esta gráfica se ha creado con el objetivo de poder analizar el precio promedio 
 - Los **aceites (tanto de oliva como de girasol)** dominan esta lista de anomalías de precios. Esto podría estar reflejando una tendencia en el mercado en la cual los aceites, posiblemente por factores como la inflación o la escasez de insumos, han experimentado fuertes aumentos de precio.
 - La **leche desnatada y productos lácteos** también muestran aumentos significativos, lo cual podría estar relacionado con cambios en los costos de producción, transporte o demanda en productos lácteos.
 
-# Conclusiones ✈️
+## Promedio por Categoría y Supermercado
 
+![Promedio por categoria y supermercado](src/02_graficas/png/05_promedio_categoria_por_supermercado.png)
 
+- La gráfica muestra el precio promedio de cada categoría de producto en varios supermercados.
+- Se observa que el precio del "aceite de oliva virgen extra" y "aceite de oliva suave e intenso" es el más alto en todas las tiendas, lo cual es consistente con la tendencia general en el mercado de aceites.
+- Los precios de las categorías de leche son relativamente uniformes y bajos en comparación con los aceites (aún teniendo en cuenta que la leche ha subido también), lo que podría ser una indicación de que los supermercados intentan mantener precios competitivos en productos básicos.
+
+# Conclusiones del Proyecto 📊
+Este proyecto ha permitido analizar las variaciones de precios en productos de supermercados listados en FACUA, con un enfoque en productos esenciales y su volatilidad en el mercado.
+
+## Cobertura de Productos y Limitaciones
+- **Representatividad de Datos**: Los precios promedio en algunos supermercados (como Mercadona) pueden no ser representativos debido a la limitada cantidad de productos listados, lo cual podría sesgar los resultados.
+## Volatilidad en Productos Esenciales
+- **Aceites y Lácteos**: Los aceites (oliva y girasol) y ciertos productos lácteos muestran las mayores fluctuaciones de precio. Esto refleja su sensibilidad a factores como inflación y costos de producción.
+## Estrategias de Precios por Supermercado
+- **Segmentación de Mercado**: Supermercados como Alcampo y Hipercor tienden a tener precios promedio más altos, posiblemente enfocados en productos de mayor calidad. En cambio, Eroski y Mercadona presentan opciones más asequibles, sugiriendo una estrategia orientada a precios bajos.
+
+## Recomendaciones
+- **Monitoreo Continuo**: Dado el impacto en productos de primera necesidad, se recomienda monitorear continuamente estos precios.
+- **Estrategia de Compra**: Los consumidores pueden beneficiarse comparando precios entre supermercados y aprovechando alternativas en productos con menor volatilidad.
+
+Este análisis ayuda a los consumidores a tomar decisiones informadas en un contexto de precios volátiles, especialmente en productos de uso cotidiano.
+
+# Próximos Pasos 🚀
+Para continuar mejorando este análisis de precios y profundizar en los patrones observados, se plantean los siguientes pasos:
+
+1. **Separación y Normalización de Productos**
+- **Extracción de Marcas**: Implementar un proceso de limpieza de datos para separar el nombre de la marca de cada producto. Esto permitirá analizar tendencias de precios a nivel de marca y corregir productos duplicados o catalogados de distinta forma por FACUA.
+- **Unificación de Productos Similares**: Identificar y agrupar productos que son esencialmente iguales pero están listados con variaciones menores en el nombre, para obtener un análisis más preciso de cada ítem.
+2. **Comparación de Precios por Supermercado**
+- **Análisis Comparativo entre Supermercados**: Realizar un análisis cruzado de precios para el mismo producto en diferentes supermercados. Esto permitirá identificar variaciones de precios para un mismo producto, detectando posibles estrategias de precios y destacando dónde pueden encontrarse las mejores ofertas.
+- **Seguimiento de Cambios a Largo Plazo**: Monitorear la evolución de los precios de productos específicos a lo largo del tiempo en los distintos supermercados para detectar tendencias o patrones estacionales.
+3. Extensión del Análisis a Nuevas Categorías
+- **Ampliación a Otros Productos**: Incorporar más categorías de productos, más allá de aceites y lácteos, para obtener un panorama más completo del comportamiento de precios en productos de consumo masivo.
+- **Análisis de Productos Estacionales**: Incluir productos que suelen tener variación de precio en ciertas épocas del año, como frutas y verduras, para observar patrones estacionales y ayudar a los consumidores a planificar sus compras.
+4. Mejora de Visualizaciones y Reportes
+- **Visualizaciones Interactivas**: Implementar visualizaciones adicionales para que los usuarios puedan explorar los datos por sí mismos y seleccionar categorías, marcas y fechas de interés.
+- **Reportes Automatizados**: Crear un sistema de reportes automatizados que genere análisis periódicos sobre la evolución de precios y detecte automáticamente anomalías o cambios bruscos en productos clave.
 
 # Contribuciones 🤝
 
@@ -252,6 +288,6 @@ Cualquier tipo de contribución, ya sea en código, documentación o feedback, s
 ## Autor ✒️
 **Gonzalo Ruipérez Ojea** - [@apelsito](https://github.com/apelsito) en github
 
-## Agradecimientos
+## Agradecimientos ❤️
 Quiero expresar mi agradecimiento a **Hackio** y su equipo por brindarme la capacidad y las herramientas necesarias para realizar este proyecto con solo una semana de formación. Su apoyo ha sido clave para lograr este trabajo.
 

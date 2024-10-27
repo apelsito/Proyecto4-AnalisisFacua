@@ -59,3 +59,13 @@ def generar_tupla(df,drop_index=False):
         df.drop(columns="index",inplace=True)
     tupla = [tuple(valores) for valores in df.values]
     return tupla
+
+def consulta_sql(conexion, query):
+    cursor = conexion.cursor()
+    cursor.execute(query)
+    resultados = cursor.fetchall()
+    columnas = [col[0] for col in cursor.description]
+    cursor.close()
+    conexion.close()
+    df = pd.DataFrame(resultados,columns=columnas)
+    return df

@@ -1,0 +1,24 @@
+,supermercado,producto,fecha,precio_anterior,precio_actual,variacion_porcentaje
+0,alcampo,"Central Lechera Asturiana Leche Desnatada (0,0% Materia Grasa) De Vaca, De Origen Español 1 L.",2024-07-16,1.04,6.0,476.92
+1,alcampo,"Kaiku Leche Entera De Vaca, Sin Lactosa  6 X 1L.",2024-10-24,3.0,7.62,154.0
+2,alcampo,"Kaiku Leche Entera De Vaca, Sin Lactosa  1 L.",2024-10-25,0.5,1.27,154.0
+3,alcampo,Président Leche Desnatada De Vaca De Origen 100% Español 6 X 1 L.,2024-09-27,3.0,6.0,100.0
+4,alcampo,Président Leche Desnatada De Vaca De Origen 100% Española 1 L.,2024-09-27,0.5,1.0,100.0
+5,alcampo,"Puleva Omega 3 Preparado Lacteo Desnatado, Sin Lactosa Y Enriquecido Con Ácido Oleico Y Omega 3 1 L.",2024-08-21,0.8999999999999999,1.68,86.67
+6,alcampo,"Puleva Omega 3  Preparado Lacteo Desnatado, Sin Lactosa Y Enriquecido Con Ácido Oleico Y Omega 3 6 X 1L.",2024-08-21,5.4,10.08,86.67
+7,alcampo,"Central Lechera Asturiana Leche Desnatada (0,0% Materia Grasa) De Vaca, De Origen Español 1 L.",2024-07-17,6.0,1.0,-83.33
+8,alcampo,"L.r. Leche Semidesnatada De Vaca, Sin Lactosa 1L.",2024-10-17,0.5,0.87,74.0
+9,alcampo,"L.r. Leche Semidesnatada De Vaca, Sin Lactosa 6X 1L.",2024-10-17,2.9999999999999996,5.22,74.0
+10,eroski,"Aceite De Girasol Especial Para Freir Coosol, Botella 1 Litro",2024-08-16,1.7899999999999998,3.05,70.39
+11,alcampo,Coosur Aceite De Oliva Intenso Botella De 1 L.,2024-09-26,6.990000000000001,11.88,69.96
+12,alcampo,La Masia Aceite De Girasol Botella 1 L.,2024-08-01,1.29,2.19,69.77
+13,eroski,"Aceite De Oliva Suave 0,4º Koipe, Botella 1 Litro",2024-07-11,7.86,13.32,69.47
+14,mercadona,Leche Entera Fresca Hacendado 1 L.,2024-07-17,3.38,1.05,-68.93
+15,alcampo,Leche Entera Fresca Hacendado 1 L.,2024-07-17,3.38,1.05,-68.93
+16,alcampo,Celta Leche Semidesnatada De Vaca Con Bienestar Animal Garantizado 4 X 1.5 L.,2024-07-17,3.38,1.05,-68.93
+17,alcampo,"L.r. Leche Desnatada De Vaca, Sin Lactosa 1L.",2024-10-14,0.49999999999999994,0.84,68.0
+18,alcampo,"L.r. Leche Desnatada De Vaca, Sin Lactosa 6 X 1L.",2024-10-14,3.0,5.04,68.0
+19,eroski,"Aceite De Oliva Virgen Extra Coosur, Botella 250 Ml",2024-10-10,2.49,4.13,65.86
+20,eroski,"Aceite De Oliva Virgen Coosur Serie Oro, Botella 1 Litro",2024-07-11,8.48,13.8,62.74
+21,alcampo,Coosur Aceite De Oliva Intenso Botella De 1 L.,2024-08-01,7.59,12.32,62.32
+22,alcampo,Coosur Aceite De Oliva Suave Botella De 1 L.,2024-09-26,6.99,11.31,61.8

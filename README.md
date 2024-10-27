@@ -30,7 +30,7 @@ Proyecto4-AnalisisFacua/
 │    │    ├── html/          # Gráficas interactivas en HTML.  
 │    │    ├── png/           # Fotos de las mismas gráficas.
 │
-└── README.md            # Descripción del proyecto, lo estás leyendo!
+└── README.md                # Descripción del proyecto, lo estás leyendo!
 ```
 
 
@@ -62,6 +62,116 @@ Para ejecutar este proyecto, asegúrate de tener instalado lo siguiente:
 git clone https://github.com/apelsito/Proyecto4-AnalisisFacua.git
 cd Proyecto4-AnalisisFacua
 ```
+## Desarrollo del Proyecto 🚀
+
+Este proyecto se ha desarrollado en varias fases para asegurar una recopilación y procesamiento de datos estructurados, seguido de su análisis. A continuación, se describen las fases clave:
+
+### Fase 1: Scraping 🔍
+
+La primera fase del proyecto consiste en recolectar datos de precios de productos mediante web scraping en la página de FACUA.
+
+#### Pasos:
+1. **Obtener URLs de Supermercados**: Usando Selenium, recopilamos todas las URLs de los supermercados disponibles en la página.
+2. **Extraer URLs de Productos**: A partir de las URLs de los supermercados, extraemos las URLs de las categorías clave:
+    - **Aceite de girasol**
+    - **Aceite de oliva**
+    - **Leche**
+3. **Obtener URLs de Subcategorías**: Nos adentramos en subcategorías específicas para mayor precisión en la extracción de datos:
+    - **Aceite de oliva**: Suave e Intenso, Virgen, Virgen Extra.
+    - **Leche**: Enriquecida, Entera/Semi/Desnatada, Sin Lactosa.
+
+   Por cada supermercado, nos quedamos con las siguientes URLs específicas:
+   - URL Aceite Girasol
+   - URL Aceite de Oliva Suave e Intenso
+   - URL Aceite de Oliva Virgen
+   - URL Aceite de Oliva Virgen Extra
+   - URL Leche Enriquecida
+   - URL Leche Entera, Semi o Desnatada
+   - URL Leche Sin Lactosa
+
+4. **Extraer Historicos de Productos**: Con BeautifulSoup, extraemos las URLs del historial de cada producto para su análisis posterior.
+
+##### Observaciones del web-scraping 📌
+
+Al revisar los datos en busca de duplicados, observamos que algunos productos aparecen listados dos veces en la web. Por ejemplo:
+
+![Producto duplicado](../src/01_png/01_Producto_duplicado.png)
+
+Al examinar los historiales de ambos productos duplicados, encontramos que la URL de cada uno es idéntica:
+
+![Histórico con URL duplicada](../src/01_png/02_URL_es_lo_mismo.png)
+![Histórico con URL duplicada](../src/01_png/02_URL_es_lo_mismo.png)
+
+Esta duplicación en los listados ocurre de forma recurrente. Por ello, hemos decidido eliminar los duplicados sin riesgo de perder información, ya que los datos de cada producto duplicado se refieren al mismo ítem en la base de datos de Facua.
+
+
+### Fase 2: Preparación Pre DB 🗄️
+
+Antes de almacenar los datos en la base de datos, preparamos los DataFrames necesarios.
+
+#### Pasos:
+1. **Separación de Tablas**: Organizamos los datos en cuatro tablas para la base de datos:
+   - **Supermercado**
+   - **Categoría**
+   - **Producto**
+   - **Histórico**
+   
+2. **Crear DataFrames**: Creamos DataFrames individuales para cada entidad con dos columnas:
+   - Un índice único (iniciando en 1) para compatibilidad con SQL.
+   - Una columna con los valores únicos de cada entidad.
+
+3. **Generación de Claves Foráneas**: En el DataFrame de **Histórico**, generamos un diccionario de cada tabla, reemplazando los valores de Supermercado, Categoría y Producto por sus índices correspondientes. Esto permite establecer relaciones entre tablas en la base de datos mediante claves foráneas.
+
+### Fase 3: Creación de la Base de Datos 🛢️
+
+Con los DataFrames preparados, procedemos a crear la base de datos en PostgreSQL.
+
+#### Pasos:
+1. **Configuración de la Base de Datos en DBeaver**:
+   - Abrimos PostgreSQL en DBeaver y creamos una nueva base de datos llamada `historicos` con la siguiente configuración:
+
+   ![Creación de Base de Datos en DBeaver](../src/01_png/03_DBeaver.png)
+   ![Ajustes de la Base de Datos](../src/01_png/04_DBeaver_newDB.png)
+
+2. **Crear las Tablas**:
+   - **Supermercados**:
+     ```sql
+     CREATE TABLE supermercados (
+       id_supermercado SERIAL PRIMARY KEY,
+       supermercado VARCHAR (100) NOT NULL
+     );
+     ```
+   - **Categorías**:
+     ```sql
+     CREATE TABLE categorias (
+       id_categoria SERIAL PRIMARY KEY,
+       categoria VARCHAR (100) NOT NULL
+     );
+     ```
+   - **Productos**:
+     ```sql
+     CREATE TABLE productos (
+       id_producto SERIAL PRIMARY KEY,
+       producto VARCHAR (1000) NOT NULL
+     );
+     ```
+   - **Históricos**:
+     ```sql
+     CREATE TABLE historicos (
+       id_supermercado INT NOT NULL,
+       fecha DATE,
+       id_producto INT NOT NULL,
+       id_categoria INT NOT NULL,
+       variacion_euros DECIMAL(5,2) NOT NULL,
+       variacion_porcentaje DECIMAL(5,2) NOT NULL,
+       FOREIGN KEY (id_producto) REFERENCES productos (id_producto) ON UPDATE CASCADE ON DELETE RESTRICT,
+       FOREIGN KEY (id_categoria) REFERENCES categorias (id_categoria) ON UPDATE CASCADE ON DELETE RESTRICT,
+       FOREIGN KEY (id_supermercado) REFERENCES supermercados (id_supermercado) ON UPDATE CASCADE ON DELETE RESTRICT
+     );
+     ```
+
+Estas tablas estructuran los datos de manera que se puedan realizar consultas eficientes y mantener la integridad de las relaciones entre los datos.
+
 ## Visualización y Análisis de Gráficas 📊
 
 Para profundizar en los datos recolectados, hemos realizado diversas consultas SQL que nos permiten extraer información clave sobre precios, variaciones y patrones de los productos en los supermercados. Estas consultas nos facilitan analizar la dispersión de precios, identificar tendencias y detectar anomalías. A continuación, presentaremos una serie de gráficas interactivas basadas en estos datos, que ofrecen una visión clara y detallada del comportamiento de los precios en el mercado.

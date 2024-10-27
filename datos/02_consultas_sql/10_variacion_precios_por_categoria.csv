@@ -1,0 +1,43 @@
+,supermercado,categoria,variacion_promedio
+0,alcampo,aceite de girasol,19.00
+1,alcampo,leche sin lactosa,8.00
+2,alcampo,leche enriquecida,4.00
+3,alcampo,"leche entera, semi o desnatada",3.00
+4,alcampo,aceite de oliva suave e intenso,1.00
+5,alcampo,aceite de oliva virgen extra,0.00
+6,alcampo,aceite de oliva virgen,0.00
+7,carrefour,leche sin lactosa,9.00
+8,carrefour,"leche entera, semi o desnatada",8.00
+9,carrefour,leche enriquecida,8.00
+10,carrefour,aceite de girasol,6.00
+11,carrefour,aceite de oliva virgen extra,3.00
+12,carrefour,aceite de oliva virgen,0.00
+13,carrefour,aceite de oliva suave e intenso,-9.00
+14,dia,aceite de girasol,14.00
+15,dia,leche enriquecida,6.00
+16,dia,"leche entera, semi o desnatada",5.00
+17,dia,leche sin lactosa,4.00
+18,dia,aceite de oliva virgen,-2.00
+19,dia,aceite de oliva virgen extra,-3.00
+20,dia,aceite de oliva suave e intenso,-7.00
+21,eroski,aceite de girasol,14.00
+22,eroski,leche sin lactosa,3.00
+23,eroski,"leche entera, semi o desnatada",3.00
+24,eroski,aceite de oliva suave e intenso,1.00
+25,eroski,leche enriquecida,0.00
+26,eroski,aceite de oliva virgen,-2.00
+27,eroski,aceite de oliva virgen extra,-3.00
+28,hipercor,aceite de girasol,10.00
+29,hipercor,aceite de oliva virgen,5.00
+30,hipercor,leche enriquecida,4.00
+31,hipercor,aceite de oliva virgen extra,3.00
+32,hipercor,leche sin lactosa,3.00
+33,hipercor,"leche entera, semi o desnatada",2.00
+34,hipercor,aceite de oliva suave e intenso,1.00
+35,mercadona,aceite de girasol,2.00
+36,mercadona,leche sin lactosa,2.00
+37,mercadona,leche enriquecida,2.00
+38,mercadona,aceite de oliva virgen extra,-6.00
+39,mercadona,"leche entera, semi o desnatada",-6.00
+40,mercadona,aceite de oliva virgen,-11.00
+41,mercadona,aceite de oliva suave e intenso,-16.00

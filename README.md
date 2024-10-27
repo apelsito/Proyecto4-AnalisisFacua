@@ -119,7 +119,8 @@ Antes de almacenar los datos en la base de datos, preparamos los DataFrames nece
    - Un índice único (iniciando en 1) para compatibilidad con SQL.
    - Una columna con los valores únicos de cada entidad.
 
-3. **Generación de Claves Foráneas**: En el DataFrame de **Histórico**, generamos un diccionario de cada tabla, reemplazando los valores de Supermercado, Categoría y Producto por sus índices correspondientes. Esto permite establecer relaciones entre tablas en la base de datos mediante claves foráneas.
+3. **Generación de Claves Foráneas**: En el DataFrame de **Histórico**:
+ - Generamos un diccionario de cada tabla, reemplazando los valores de Supermercado, Categoría y Producto por sus índices correspondientes. Esto permite establecer relaciones entre tablas en la base de datos mediante claves foráneas.
 
 ## Fase 3: Creación de la Base de Datos 🛢️
 

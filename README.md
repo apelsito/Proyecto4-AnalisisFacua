@@ -131,7 +131,7 @@ Con los DataFrames preparados, procedemos a crear la base de datos en PostgreSQL
    - Abrimos PostgreSQL en DBeaver y creamos una nueva base de datos llamada `historicos` con la siguiente configuración:
 
    ![Creación de Base de Datos en DBeaver](src/01_png/03_DBeaver.png)
-   
+
    ![Ajustes de la Base de Datos](src/01_png/04_DBeaver_newDB.png)
 
 2. **Crear las Tablas**:
@@ -173,9 +173,32 @@ Con los DataFrames preparados, procedemos a crear la base de datos en PostgreSQL
 
 Estas tablas estructuran los datos de manera que se puedan realizar consultas eficientes y mantener la integridad de las relaciones entre los datos.
 
-# Visualización y Análisis de Gráficas 📊
+## Fase 4: Consultas SQL y Análisis de Datos 📊
+
+En esta fase, realizamos diversas consultas SQL para analizar los datos recopilados, enfocándonos en obtener información útil y patrones significativos. Este análisis nos permite comparar precios, identificar tendencias y detectar posibles anomalías en los datos de precios de los productos en distintos supermercados.
+
+## Fase 5: Visualización de Datos en Gráficas 📈
+
+En esta fase final, verificamos que los datos puedan visualizarse en gráficos de manera significativa. Para ello, nos aseguramos de que las tablas y los resultados de las consultas estén estructurados adecuadamente, permitiendo generar visualizaciones que reflejen de forma clara y coherente los patrones y comparaciones analizados previamente.
+
+# Análisis de las Gráficas obtenidas 📊
 
 Para profundizar en los datos recolectados, hemos realizado diversas consultas SQL que nos permiten extraer información clave sobre precios, variaciones y patrones de los productos en los supermercados. Estas consultas nos facilitan analizar la dispersión de precios, identificar tendencias y detectar anomalías. A continuación, presentaremos una serie de gráficas interactivas basadas en estos datos, que ofrecen una visión clara y detallada del comportamiento de los precios en el mercado.
+
+## Productos por Supermercado
+
+![Productos por Supermercado](src/02_graficas/png/01_productos_por_supermercado.png)
+
+- La gráfica indica el número total de productos disponibles en la web de Facua.
+- Hipercor lidera en número de productos, seguido de Alcampo y Carrefour. Mercadona tiene el menor número de productos listados.
+- **Limitaciones de la Muestra**: Dado que los datos de precios provienen únicamente de los productos que FACUA ha listado, la cantidad de productos en cada supermercado no refleja la totalidad de su inventario. Esto significa que los supermercados con menos productos en la lista pueden tener menos representatividad en el análisis.
+- **Implicaciones para el Análisis de Precios**: Supermercados como Mercadona, con menos productos listados, podrían tener una cobertura de precios limitada. Esto podría hacer que el precio promedio calculado para este supermercado sea menos robusto o representativo del total de productos que realmente ofrece.
+
+- **En contraste**, Hipercor y Alcampo, que tienen más productos listados, permiten un análisis más robusto y probablemente representativo de sus estrategias de precios y variedad de productos.
+
+- **Precauciones en las Conclusiones**: Al interpretar los precios promedio, es importante recordar que un menor número de productos listados (como en el caso de Mercadona) puede sesgar la media hacia los productos específicos que FACUA decidió incluir. Por lo tanto, las conclusiones sobre estrategias de precios deben tomarse con precaución, especialmente para supermercados con menor representación en los datos.
+
+
 
 
 ## Conclusiones ✈️
